@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, Image, FlatList, StyleSheet} from 'react-native';
+import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
 import {Card, Button, Icon, Input} from 'react-native-elements';
 
 const URL = 'http://localhost:3000/api/v1/codes';
@@ -29,7 +29,7 @@ const Home = () => {
     const qr = await response.json();
 
     if (response.ok) {
-      setQRCodes(prev => [...prev, qr]);
+      setQRCodes(qr.data);
     }
   }, []);
 
@@ -64,22 +64,26 @@ const Home = () => {
           }}
         />
       </View>
-      <FlatList
-        data={qRCodes}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <Card title={item.title} containerStyle={styles.cardContainer}>
-            <Image style={styles.image} source={{uri: item.code}} />
-            <Button
-              icon={
-                <Icon name="delete" color="#ffffff" iconStyle={styles.icon} />
-              }
-              buttonStyle={styles.button}
-              title="DELETE"
-            />
-          </Card>
-        )}
-      />
+      {qRCodes.length ? (
+        <FlatList
+          data={qRCodes}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+            <Card title={item.title} containerStyle={styles.cardContainer}>
+              <Image style={styles.image} source={{uri: item.code}} />
+              <Button
+                icon={
+                  <Icon name="delete" color="#ffffff" iconStyle={styles.icon} />
+                }
+                buttonStyle={styles.button}
+                title="DELETE"
+              />
+            </Card>
+          )}
+        />
+      ) : (
+        <Text>No QR Codes yet. Create one now.</Text>
+      )}
     </View>
   );
 };
