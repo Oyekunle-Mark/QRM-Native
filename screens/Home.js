@@ -39,6 +39,14 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
+      <View>
+        <Input
+          placeholder="Enter text to be encoded"
+          inputContainerStyle={styles.input}
+          onChangeText={text => setCodeInput(text)}
+          defaultValue={codeInput}
+        />
+      </View>
       <FlatList
         data={qRCodes}
         renderItem={({item}) => (
@@ -75,6 +83,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
+  },
+  input: {
+    margin: 10,
   },
 });
 
