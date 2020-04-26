@@ -28,9 +28,9 @@ const Home = () => {
           <Card title={item.title} containerStyle={styles.cardContainer}>
             <Image style={styles.image} source={{uri: item.code}} />
             <Button
-              icon={<Icon name="code" color="#ffffff" />}
+              icon={<Icon name="delete" color="#ffffff" />}
               buttonStyle={styles.button}
-              title="VIEW NOW"
+              title="DELETE"
             />
           </Card>
         )}
@@ -50,12 +50,13 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   image: {
-    marginLeft: 'auto',
     width: 300,
     height: 300,
-    marginHorizontal: 25,
   },
   cardContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 10,
   },
 });
