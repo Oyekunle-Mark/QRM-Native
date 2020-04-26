@@ -82,7 +82,9 @@ const Home = () => {
           )}
         />
       ) : (
-        <Text>No QR Codes yet. Create one now.</Text>
+        <Text style={styles.emptyTextMessage}>
+          No QR Codes yet. Create one now.
+        </Text>
       )}
     </View>
   );
@@ -117,6 +119,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 10,
+  },
+  emptyTextMessage: {
+    textAlign: 'center',
+    fontSize: 18,
   },
 });
 
