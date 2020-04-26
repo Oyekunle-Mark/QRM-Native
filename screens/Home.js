@@ -46,6 +46,13 @@ const Home = () => {
           onChangeText={text => setCodeInput(text)}
           defaultValue={codeInput}
         />
+        <Button
+          icon={<Icon name="qrcode" type="font-awesome" color="white" />}
+          iconRight
+          title="Generate QR Code"
+          type="solid"
+          buttonStyle={styles.submit}
+        />
       </View>
       <FlatList
         data={qRCodes}
@@ -86,6 +93,9 @@ const styles = StyleSheet.create({
   },
   input: {
     margin: 10,
+  },
+  submit: {
+    marginHorizontal: 20,
   },
 });
 
