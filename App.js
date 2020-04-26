@@ -22,6 +22,7 @@ const App = () => (
 const styles = StyleSheet.create({
   body: {
     backgroundColor: 'whitesmoke',
+    height: '100%',
   },
 });
 
