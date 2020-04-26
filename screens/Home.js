@@ -2,11 +2,12 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
 import {Card, Button, Icon, Input} from 'react-native-elements';
 
+import CodeForm from '../components/Form';
+
 const URL = 'http://localhost:3000/api/v1/codes';
 
 const Home = () => {
   const [qRCodes, setQRCodes] = useState([]);
-  const [codeInput, setCodeInput] = useState('');
 
   const getQRCodes = useCallback(async () => {
     const response = await fetch(URL);
@@ -50,31 +51,8 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Input
-          placeholder="Enter text to be encoded"
-          inputContainerStyle={styles.input}
-          onChangeText={text => setCodeInput(text)}
-          defaultValue={codeInput}
-        />
-        <Button
-          icon={
-            <Icon
-              name="qrcode"
-              type="font-awesome"
-              color="#ffffff"
-              iconStyle={styles.icon}
-            />
-          }
-          iconRight
-          title="Generate QR Code"
-          type="solid"
-          buttonStyle={styles.submit}
-          onPress={() => {
-            createQRCode(codeInput);
-          }}
-        />
-      </View>
+      <CodeForm createQRCode={createQRCode} />
+
       {qRCodes.length ? (
         <FlatList
           data={qRCodes}
@@ -123,13 +101,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-  },
-  input: {
-    margin: 10,
-  },
-  submit: {
-    marginHorizontal: 20,
-    marginBottom: 30,
   },
   icon: {
     marginHorizontal: 10,
