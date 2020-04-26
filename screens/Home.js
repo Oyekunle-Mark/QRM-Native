@@ -3,6 +3,7 @@ import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
 import {Card, Button, Icon} from 'react-native-elements';
 
 import CodeForm from '../components/Form';
+import QRCodes from '../components/QRCodes';
 
 const URL = 'http://localhost:3000/api/v1/codes';
 
@@ -52,32 +53,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <CodeForm createQRCode={createQRCode} />
-
-      {qRCodes.length ? (
-        <FlatList
-          data={qRCodes}
-          keyExtractor={item => item.id}
-          renderItem={({item}) => (
-            <Card title={item.title} containerStyle={styles.cardContainer}>
-              <Image style={styles.image} source={{uri: item.code}} />
-              <Button
-                icon={
-                  <Icon name="delete" color="#ffffff" iconStyle={styles.icon} />
-                }
-                buttonStyle={styles.button}
-                title="DELETE"
-                onPress={() => {
-                  deleteQRCode(item.id);
-                }}
-              />
-            </Card>
-          )}
-        />
-      ) : (
-        <Text style={styles.emptyTextMessage}>
-          No QR Codes yet. Create one now.
-        </Text>
-      )}
+      <QRCodes qRCodes={qRCodes} deleteQRCode={deleteQRCode} />
     </View>
   );
 };
