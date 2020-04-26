@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
+import React from 'react';
+import {Text, Image, FlatList, StyleSheet} from 'react-native';
 import {Card, Button, Icon} from 'react-native-elements';
 
 const QRCodes = ({qRCodes, deleteQRCode}) =>
@@ -30,9 +30,6 @@ const QRCodes = ({qRCodes, deleteQRCode}) =>
   );
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 20,
-  },
   button: {
     borderRadius: 5,
     marginLeft: 0,
