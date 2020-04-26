@@ -23,13 +23,13 @@ const Home = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({dataString: data}),
     });
 
     const qr = await response.json();
 
     if (response.ok) {
-      setQRCodes([...qRCodes, qr]);
+      setQRCodes(prev => [...prev, qr]);
     }
   }, []);
 
@@ -59,10 +59,14 @@ const Home = () => {
           title="Generate QR Code"
           type="solid"
           buttonStyle={styles.submit}
+          onPress={() => {
+            createQRCode(codeInput);
+          }}
         />
       </View>
       <FlatList
         data={qRCodes}
+        keyExtractor={item => item.id}
         renderItem={({item}) => (
           <Card title={item.title} containerStyle={styles.cardContainer}>
             <Image style={styles.image} source={{uri: item.code}} />
