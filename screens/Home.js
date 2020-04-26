@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
-import {Card, Button, Icon} from 'react-native-elements';
+import {View, StyleSheet} from 'react-native';
 
 import CodeForm from '../components/Form';
 import QRCodes from '../components/QRCodes';
@@ -61,29 +60,6 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
-  },
-  button: {
-    borderRadius: 5,
-    marginLeft: 0,
-    marginRight: 0,
-    marginBottom: 0,
-  },
-  image: {
-    width: 300,
-    height: 300,
-  },
-  cardContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  icon: {
-    marginHorizontal: 10,
-  },
-  emptyTextMessage: {
-    textAlign: 'center',
-    fontSize: 18,
   },
 });
 
