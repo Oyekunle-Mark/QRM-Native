@@ -34,8 +34,9 @@ const Home = () => {
   }, []);
 
   const deleteQRCode = useCallback(async id => {
-    const response = await fetch(`URL/${id}`, {method: 'DELETE'});
-
+    const response = await fetch(`${URL}/${id}`, {
+      method: 'delete',
+    });
     const qrs = await response.json();
 
     if (response.ok) {
