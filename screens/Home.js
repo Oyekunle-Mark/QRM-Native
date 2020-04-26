@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
-import {Card, Button, Icon, Input} from 'react-native-elements';
+import {Card, Button, Icon} from 'react-native-elements';
 
 import CodeForm from '../components/Form';
 
