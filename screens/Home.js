@@ -50,8 +50,10 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   image: {
+    marginLeft: 'auto',
     width: 300,
     height: 300,
+    marginHorizontal: 25,
   },
   cardContainer: {
     borderRadius: 10,

@@ -21,7 +21,7 @@ const App = () => (
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: 'white',
+    backgroundColor: 'whitesmoke',
   },
 });
 
