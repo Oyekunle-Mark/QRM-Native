@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
-import {Card, ListItem, Button, Icon} from 'react-native-elements';
+import {View, Image, FlatList, StyleSheet} from 'react-native';
+import {Card, Button, Icon} from 'react-native-elements';
 
 const URL = 'http://localhost:3000/api/v1/codes';
 
@@ -25,11 +25,8 @@ const Home = () => {
       <FlatList
         data={qRCodes}
         renderItem={({item}) => (
-          <Card title={item.title} image={item.code}>
-            <Text style={styles.text}>
-              The idea with React Native Elements is more about component
-              structure than actual design.
-            </Text>
+          <Card title={item.title} containerStyle={styles.cardContainer}>
+            <Image style={styles.image} source={{uri: item.code}} />
             <Button
               icon={<Icon name="code" color="#ffffff" />}
               buttonStyle={styles.button}
@@ -44,16 +41,21 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 22,
+    paddingTop: 20,
   },
   button: {
-    borderRadius: 0,
+    borderRadius: 5,
     marginLeft: 0,
     marginRight: 0,
     marginBottom: 0,
   },
-  text: {marginBottom: 10},
+  image: {
+    width: 300,
+    height: 300,
+  },
+  cardContainer: {
+    borderRadius: 10,
+  },
 });
 
 export default Home;
