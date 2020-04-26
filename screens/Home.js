@@ -47,7 +47,14 @@ const Home = () => {
           defaultValue={codeInput}
         />
         <Button
-          icon={<Icon name="qrcode" type="font-awesome" color="white" />}
+          icon={
+            <Icon
+              name="qrcode"
+              type="font-awesome"
+              color="#ffffff"
+              iconStyle={styles.icon}
+            />
+          }
           iconRight
           title="Generate QR Code"
           type="solid"
@@ -60,7 +67,9 @@ const Home = () => {
           <Card title={item.title} containerStyle={styles.cardContainer}>
             <Image style={styles.image} source={{uri: item.code}} />
             <Button
-              icon={<Icon name="delete" color="#ffffff" />}
+              icon={
+                <Icon name="delete" color="#ffffff" iconStyle={styles.icon} />
+              }
               buttonStyle={styles.button}
               title="DELETE"
             />
@@ -96,6 +105,10 @@ const styles = StyleSheet.create({
   },
   submit: {
     marginHorizontal: 20,
+    marginBottom: 30,
+  },
+  icon: {
+    marginHorizontal: 10,
   },
 });
 
