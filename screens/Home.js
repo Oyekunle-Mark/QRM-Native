@@ -87,6 +87,9 @@ const Home = () => {
                 }
                 buttonStyle={styles.button}
                 title="DELETE"
+                onPress={() => {
+                  deleteQRCode(item.id);
+                }}
               />
             </Card>
           )}
