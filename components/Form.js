@@ -28,6 +28,7 @@ const CodeForm = ({createQRCode}) => {
         buttonStyle={styles.submit}
         onPress={() => {
           createQRCode(codeInput);
+          setCodeInput('');
         }}
       />
     </View>
