@@ -35,25 +35,6 @@ const CodeForm = ({createQRCode}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 20,
-  },
-  button: {
-    borderRadius: 5,
-    marginLeft: 0,
-    marginRight: 0,
-    marginBottom: 0,
-  },
-  image: {
-    width: 300,
-    height: 300,
-  },
-  cardContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
   input: {
     margin: 10,
   },
@@ -63,10 +44,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 10,
-  },
-  emptyTextMessage: {
-    textAlign: 'center',
-    fontSize: 18,
   },
 });
 
