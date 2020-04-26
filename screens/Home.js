@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {View, Image, FlatList, StyleSheet} from 'react-native';
-import {Card, Button, Icon} from 'react-native-elements';
+import {Card, Button, Icon, Input} from 'react-native-elements';
 
 const URL = 'http://localhost:3000/api/v1/codes';
 
 const Home = () => {
   const [qRCodes, setQRCodes] = useState([]);
+  const [codeInput, setCodeInput] = useState('');
 
   const getQRCodes = useCallback(async () => {
     const response = await fetch(URL);
@@ -13,6 +14,22 @@ const Home = () => {
 
     if (response.ok) {
       setQRCodes(qrs.data);
+    }
+  }, []);
+
+  const createQRCode = useCallback(async data => {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const qr = await response.json();
+
+    if (response.ok) {
+      setQRCodes([...qRCodes, qr]);
     }
   }, []);
 
